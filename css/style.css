@@ -1,0 +1,622 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter;
+}
+
+.up {
+    position: fixed;
+    background-image: linear-gradient(194deg, #CB218E 0%, #6617CB 90.10%);
+    color: white;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9;
+    padding: 1em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+.up i {
+    font-size: 20px;
+}
+
+
+.parent {
+    background-color: #000;
+    
+}
+
+.parent .container {
+    padding: 0 1rem;
+}
+
+/* start of nav */
+.parent .container nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.parent .container nav .logo {
+    width: 8em;
+}
+
+.parent .container nav .fa-bars {
+    color: #fff;
+    font-size: 1.2rem;
+    display: none;
+}
+
+.parent .container nav::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    background-image: linear-gradient(194deg, #CB218E 0%, #6617CB 90.10%);
+}
+
+.parent .container nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.parent .container nav ul li {
+    list-style: none;
+}
+
+.parent .container nav ul li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+}
+
+.parent .container nav ul li a:hover {
+    /* color: #CB218E; */
+}
+
+.parent .container nav ul li a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 0%;
+    background-color: #fff;
+    bottom: -2px;
+    right: 0;
+    transition: width .5s;
+}
+
+.parent .container nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+    transition: width .5s;
+}
+
+@media (max-width: 767px) {
+    .parent .container nav ul {
+        display: none;
+    }
+    .parent .container nav .fa-bars{
+        display: block;
+        cursor: pointer;
+    }
+    .parent .container nav .fa-bars.active ~ ul {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        top: 80px;
+        background-color: #CB218E;
+        padding: 2rem;
+        z-index: 1;
+    }
+    .parent .container nav .fa-bars.active ~ ul::before {
+        content: "";
+        position: absolute;
+        top: -22px;
+        right: 0;
+        border-style: solid;
+        border-color: transparent transparent #CB218E transparent;
+        border-width: 0.7rem;
+    }
+    .parent .container nav ul li a {
+
+        transition: transform 1s;
+    }
+    .parent .container nav ul li a:hover {
+        color: white;
+        transform: translateX(0.5rem);
+    }
+    .parent .container nav ul li a:hover::after {
+        display: none;
+    }
+    
+}
+
+/* end of nav */
+/* start of services */
+
+.parent .container .services {
+    background-image: url(../images/f-back.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5rem 1.5rem 1.5rem;
+    overflow: hidden;
+}
+.parent .container .services .f-bann {
+    transform: translateX(60px);
+}
+
+.parent .container .services .texts_btn {
+    transform: translateX(-60px);
+}
+
+.parent .container .services .f-bann,
+.parent .container .services .texts_btn {
+    width: 50%;
+    opacity: 0;
+    transition: opacity .5s, transform 1s;
+}
+
+.parent .container .services .f-bann.opa ,
+.parent .container .services .texts_btn.opa {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.parent .container .services .f-bann img {
+    width: 100%;
+}
+
+.parent .container .services .texts_btn h1 {
+    font-size: 2.5rem;
+}
+
+
+/* styles all the spans */
+span.gradient {
+    background-image: linear-gradient(90deg,#CB218E , #6617CB);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.parent .container .services .texts_btn p {
+    margin-top: 1.5rem;
+    width: 80%;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.parent .container .services .texts_btn button {
+    background-image: linear-gradient(90deg,#CB218E 30%, #6617CB);
+    outline: none;
+    border: none;
+    padding: 0.8rem 3rem;
+    margin-top: 3rem;
+    border-radius: 5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.parent .container .services .texts_btn button:hover {
+    opacity: 90%;
+}
+
+.parent .container .services .texts_btn button i {
+    margin-right: 0.5em;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .parent .container .services {
+        flex-direction: column;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .parent .container .services .texts_btn,
+    .parent .container .services .texts_btn p {
+        width: 100%;
+        text-align: center;
+    }
+    .parent .container .services .f-bann {
+        width: 85%;
+    }
+}
+/* end of services */
+
+/* start project & landing pages */
+
+.projects {
+    background-color: #000;
+    padding: 1rem;
+    background-image: url(../images/f-back.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.projects h1 {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.background {
+    display: none;
+}
+
+.background.active {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10.5px);
+    z-index: 2;
+}
+
+.projects .landing-pages {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+
+    /* overflow: hidden; */
+
+}
+
+.projects .landing-pages div {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.projects .landing-pages div.opa {
+    opacity: 1;
+    transform: translateY(0px);
+    align-items: center;
+}
+
+
+
+
+.projects .landing-pages div.landing {
+    position: relative;
+    cursor: pointer;
+    transition: transform 1s, opacity 0.5s;
+    height: 500px;
+    overflow: hidden;
+}
+
+.projects .landing-pages div.opa .fa-xmark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2em;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.projects .landing-pages div.opa .fa-xmark:hover {
+    color: white;
+}
+
+.projects .landing-pages div::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  .projects .landing-pages div::-webkit-scrollbar {
+    width: 10px;
+  }
+  .projects .landing-pages div::-webkit-scrollbar-thumb {
+      background: #888; 
+  }
+    
+  
+  .projects .landing-pages div::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+  } 
+
+.projects .landing-pages div.landing:hover {
+    transform: scale(0.98);
+    transition: transform .5s;
+
+}
+
+.projects .landing-pages div img {
+     width: 100% ;
+}
+
+.projects .landing-pages div img:not(:first-child) {
+    margin-top: -4px;
+}
+
+@media (min-width: 1044px) {
+    .projects .landing-pages {
+        grid-template-columns: repeat(3, 1fr);
+    
+    }
+}
+
+@media (max-width: 375px) {
+    .projects .landing-pages {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    
+    }
+}
+/* end of projects */
+/* start pricing */
+.price-sec {
+    background-color: #000;
+    padding: 2rem 1.5rem 0;
+}
+
+.price-sec h1 {
+    color: white;
+    text-align: center;
+
+}
+.price-sec .price-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 270px));
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem auto 0;
+}
+.price-sec .price-boxes .box {
+    background-color: #fff;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.price-sec .price-boxes .basic-box,
+.price-sec .price-boxes .premium-box {
+    height: 90%;
+    width: 90%;
+}
+
+.price-sec .price-boxes .premium-box {
+    justify-self: flex-end;
+}
+
+.price-sec .price-boxes .box h2 {
+    background-color: #CB218E;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.price-sec .price-boxes .basic-box h2 ,
+.price-sec .price-boxes .premium-box h2 {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+}
+
+.price-sec .price-boxes .standard-box h2 {
+    background-color: #6617CB;
+}
+
+
+
+.price-sec .price-boxes .box h2::after {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #CB218E transparent  transparent transparent;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+}
+
+.price-sec .price-boxes .standard-box h2::after {
+  
+    border-color: #6617CB transparent  transparent transparent;
+}
+
+
+.price-sec .price-boxes .box .line {
+    width: 60%;
+    height: 1px;
+    background-color: #90909086;
+    margin: 1.5rem auto 1rem;
+}
+
+.price-sec .price-boxes .basic-box .line ,
+.price-sec .price-boxes .premium-box .line {
+    margin: 1.5rem auto 0.8rem;
+}
+
+.price-sec .price-boxes .box h3 {
+    background-color: #D9D9D9;
+    padding: 0.8rem 0.5rem;
+    width: 90%;
+    margin: auto;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.price-sec .price-boxes .basic-box h3 ,
+.price-sec .price-boxes .premium-box h3 {
+    width: 80%;
+}
+
+.price-sec .price-boxes .box h3:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.price-sec .price-boxes .box p {
+    color: #CB218E;
+    font-size: 2em;
+}
+
+.price-sec .price-boxes .same p {
+    font-size: 1.5em;
+}
+
+@media (max-width: 992px) {
+    /* .price-sec .price-boxes {
+        grid-template-columns: minmax(250px, 280px);
+    } */
+    .price-sec .price-boxes .box {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* end pricing */
+
+/* start about */
+.about {
+    background-image: url(../images/f-back.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
+    margin-top: -0.1em;
+    overflow: hidden;
+}
+
+.about .text,
+.about .image {
+    width: 50%;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+.about .text {
+    transform: translateX(-80px);
+}
+
+.about .image {
+    transform: translateX(80px);
+}
+
+.about .text.opa,
+.about .image.opa {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.about .text p {
+    margin-top: 2rem;
+    line-height: 1.5;
+}
+.about .image img {
+    width: 90%;
+}
+
+@media (max-width: 767px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 3em;
+    }
+    .about .text {
+    width: 100%;
+    }
+    
+    .about .image {
+        width: 90%;
+    }
+}
+
+
+/* end about */
+
+/* start footer */
+footer {
+    background-color: #000;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem 2rem;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 99%;
+    background-image: linear-gradient(to left, #CB218E, #6617CB) ;
+}
+
+footer .contact,
+footer .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+footer .socials div {
+    display: flex;
+    gap: 1rem;
+}
+
+footer .socials div a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.5s;
+}
+
+footer .socials div a:hover {
+    color: #CB218E;
+}
+
+@media (max-width: 767px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    footer .contact,
+    footer .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    }
+}
+/* end footer */
